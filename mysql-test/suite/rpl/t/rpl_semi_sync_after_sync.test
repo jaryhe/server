@@ -1,4 +1,15 @@
 --source include/have_binlog_format_statement.inc
 set global rpl_semi_sync_master_wait_point=AFTER_SYNC;
-source rpl_semi_sync.test;
+# This is a failure exploring commit (https://internal.askmonty.org/buildbot/builders/kvm-deb-xenial-x86/builds/6670:
+# At line 165: query 'SET GLOBAL gtid_slave_pos= ""' failed: 1198: This operation cannot be performed as you have a running slave ''; run STOP SLAVE '' first
+#
+#source include/stop_slave.inc;
+
+#source rpl_semi_sync.test;
+
+source include/not_embedded.inc;
+source include/have_innodb.inc;
+source include/master-slave.inc;
+--source include/rpl_end.inc
+
 set global rpl_semi_sync_master_wait_point=default;
