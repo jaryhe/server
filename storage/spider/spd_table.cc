@@ -10165,7 +10165,7 @@ void *spider_table_bg_crd_action(
         {
           spider_get_conn(share, spider->search_link_idx,
             share->conn_keys[spider->search_link_idx],
-            spider_global_trx, spider, FALSE, FALSE, SPIDER_CONN_KIND_MYSQL,
+            trx, spider, FALSE, FALSE, SPIDER_CONN_KIND_MYSQL,
             &error_num);
           if (conns[spider->search_link_idx])
           {
