@@ -128,8 +128,8 @@ File create_temp_file(char *to, const char *dir, const char *prefix,
     }
     strmov(convert_dirname(to,dir,NullS),prefix_buff);
     org_file=mkstemp(to);
-    if (MyFlags & MY_TEMPORARY)
-      (void) my_delete(to, MYF(MY_WME | ME_NOINPUT));
+    if (org_file >= 0 && (MyFlags & MY_TEMPORARY))
+      (void) my_delete(to, MYF(MY_WME));
     file=my_register_filename(org_file, to, FILE_BY_MKSTEMP,
 			      EE_CANTCREATEFILE, MyFlags);
     /* If we didn't manage to register the name, remove the temp file */
