@@ -16,6 +16,7 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA */
 
 /* This is the include file that should be included 'first' in every C file. */
+stop the forking build!
 
 #ifndef MY_GLOBAL_INCLUDED
 #define MY_GLOBAL_INCLUDED
